@@ -1,0 +1,149 @@
+.weather-app {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    >* {
+        height: 85vh;
+    }
+
+    .content {
+        width: 480px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .logo-container {
+            width: 98px;
+            height: 43px;
+        }
+
+        // .content-container {
+        //     padding-top: 78px;
+        //     padding-left: 49px;
+
+        >:not(:first-child) {
+            // background-color: gold;
+            padding-left: 49px;
+        }
+
+            p {
+                font-size: rem(30px);
+                width: 271px;
+                color: $clr7;
+                // padding-bottom: 50px;
+            }
+
+        // }
+    }
+
+    .weather-container {
+        width: 669px;
+        background-color: $clr2;
+        color: $clr4;
+        border-radius: 4px;
+
+        .weather-info {
+            background-color: $clr3;
+            margin: 73px 117px;
+            border-radius: 30px;
+            // font-family: heebo-light;
+
+            >* {
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .weather-title {
+                color: $clr6;
+                padding-top: 50px;
+
+                .weather-city {
+                    color: $clr4;
+                    font-size: rem(26px);
+                    font-family: heebo;
+                    // line-height: 26;
+                }
+
+                .weather-country {
+                    font-size: rem(22px);
+                }
+
+                .weather-date {
+                    font-size: rem(18px);
+                }
+
+            }
+
+            .weather-temp {
+                padding-bottom: 25px;
+                position: relative;
+                height: 191px;
+                // letter-spacing: 0;
+
+                .temp {
+                    font-size: 80px;
+                    color: $clr5;
+                    font-family: heebo-medium;
+
+                    &::after {
+                        content: "\00b0";
+                        position: absolute;
+                        top: -10%;
+                        right: 35%;
+                    }
+                }
+
+                .description {
+                    color: $clr4;
+                    font-size: 30px;
+                }
+            }
+
+            .weather-details {
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 0 51px 34px;
+                font-size: rem(20px);
+
+                >* {
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                .title {
+                }
+
+                .measure {
+                    font-family: heebo-medium;
+                    color: $clr5;
+                }
+            }
+
+            .weather-hours {
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 0 54px 14px;
+                font-size: rem(18px);
+
+                >* {
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                .hour {
+                    color: $clr6;
+                }
+
+                .measure {
+                    font-family: heebo-medium;
+                    color: $clr5;
+                    &::after {
+                        content: "\00b0";
+                    }
+                }
+            }
+        }
+    }
+}

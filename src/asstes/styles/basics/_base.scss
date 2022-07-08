@@ -1,0 +1,109 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: heebo-light;
+    line-height: 1.8;
+    line-height: lh(22px);
+
+    @media (max-width: 1300px) {
+        font-size: 13px;
+    }
+}
+
+body {
+    margin: 0;
+    background-color: $clr1;
+
+    @include for-normal-layout {
+        &.sidebar-open {
+            overflow: hidden;
+        }
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 500;
+    margin: 0 0 1rem;
+    line-height: lh(40px, 29px);
+}
+
+h1 {
+    font-size: rem(60px);
+}
+
+h2 {
+    font-size: em(16px);
+    margin: em(63px) 0;
+    grid-area: title;
+    color: $clr1;
+    text-align: center;
+    text-transform: uppercase;
+    @include type(boldCondensed);
+}
+
+h3 {
+    font-size: em(29px);
+}
+
+img {
+    width: 100%;
+    object-fit: cover;
+}
+
+p {
+    margin: 0 0 1em;
+    max-width: 60ch;
+}
+
+.root-cmp {
+    margin: 54px;
+    height: 85vh;
+}
+
+.btn {
+    @include btn;
+
+    &-dark {
+        @include btn($type: dark);
+    }
+
+    &-light {
+        @include btn($type: light);
+    }
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+// Scrollbar
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: $clr4;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+button {
+    cursor: pointer;
+}

@@ -1,0 +1,22 @@
+// COLOR PALETTE
+$clr1: #F1F1F1; // background
+$clr2: #DDE4E6; // weather-container
+$clr3: #27737D; // weather-info
+$clr4: #E8F1F2; // weather-title
+$clr5: #FFFFFF; // white
+$clr6: #A8C6CB; // text weather
+$clr7: #707070; // text content
+$clr8: #363636; // text input
+
+
+// LAYOUT
+$layout-padding: 54px;
+
+// LAYOUT BREAKPOINTS
+$break-narrow: 490px;
+$break-normal: 760px;
+$break-wide: 960px;
+
+$padded-break-narrow: $break-narrow + $layout-padding * 2;
+$padded-break-normal: $break-normal + $layout-padding * 2;
+$padded-break-wide: $break-wide + $layout-padding * 2;

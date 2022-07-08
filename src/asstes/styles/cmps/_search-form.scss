@@ -1,0 +1,43 @@
+.search-form {
+    font-size: rem(16px);
+    color: $clr7;
+    position: relative;
+
+    label {
+        &::before {
+            content: "\00a0 ";
+        }
+    }
+
+    input {
+        display: block;
+        margin-top: 7px;
+        border: none;
+        border-radius: 10px;
+        height: rem(63px);
+        width: 100%;
+        color: $clr8;
+        font-size: rem(22px);
+        font-family: heebo;
+
+        &:focus {
+            outline: none;
+        }
+
+        padding: 16px 120px 16px 12px;
+    }
+
+    button {
+        position: absolute;
+        top: 45%;
+        right: 3%;
+        width: 95px;
+        height: 36px;
+        background-color: #046B3B;
+        color: $clr5;
+        font-size: rem(18px);
+        border: none;
+        border-radius: 10px;
+        font-family: inherit;
+    }
+}
