@@ -1,11 +1,18 @@
-export function AppFooter() {
+import { utilService } from '../services/util.service'
+
+export function AppFooter({ lat, lng, date }) {
+
+    const dateToDisplay = (timestamp) => {
+        return utilService.formatDate(timestamp, false)
+    }
+
     return (
         <footer className="app-footer">
             <div className="flex space-between">
-                <span>latitude 32.07</span> 
-                <span>longitude 34.76</span>
+                <span>latitude {lat}</span> 
+                <span>longitude {lng}</span>
             </div>
-            <span>accurate to 13/02/2022 at 16:24</span>
+            <span>accurate to {dateToDisplay(date)}</span>
         </footer>
     )
 }

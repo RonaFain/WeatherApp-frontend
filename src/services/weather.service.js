@@ -9,12 +9,14 @@ export const weatherService = {
 async function query(text) {
     try {
         if(!text) return
-        // const url = `http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${text}&days=1&aqi=no&alerts=no`
-        // const { data } = await axios.get(url)
+        const url = `http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${text}&days=1&aqi=no&alerts=no`
+        const { data } = await axios.get(url)
         // const forecast = {
         //     city: data.location.name,
         //     country: data.location.country,
         //     lastUpdate: data.current.last_updated_epoch,
+        //     lat: data.location.lat,
+        //     lng: data.location.lon,
         //     tempC: data.current.temp_c,
         //     description: data.current.condition.text,
         //     conditions: {

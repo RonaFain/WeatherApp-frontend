@@ -13,6 +13,7 @@ import Logo from '../asstes/imgs/logo.svg'
 
 
 export function WeatherApp() {
+    const [locWeather, setLocWeather] = useState(null)
     const [searchTxt, setSearchTxt] = useState('')
     const [isSearching, setIsSearching] = useState(false)
     
@@ -22,13 +23,13 @@ export function WeatherApp() {
     useEffect(() => {
         if (debouncedSearchTerm) {
             setIsSearching(true)
-            loadLocation(debouncedSearchTerm).then(results => {
+            loadLocation(debouncedSearchTerm).then(weather => {
               setIsSearching(false)
-              console.log('results????' , results)
-            //   setResults(results);
+            //   console.log('weather????' , weather)
+              setLocWeather(weather);
             })
           } else {
-            // setResults([]);
+            setDefaultLoc()
           }
     }, [debouncedSearchTerm])
 
@@ -37,7 +38,17 @@ export function WeatherApp() {
             if (!txt) return
             return await weatherService.query(txt)
         } catch (err) {
-            
+            console.log(err)
+        }
+    }
+
+    const setDefaultLoc = async () => {
+        try {
+            console.log('????????')
+            const defaultLoc = await weatherService.query('Tel Aviv')
+            setLocWeather(defaultLoc)
+        } catch (err) {
+            console.log(err)
         }
     }
 
@@ -55,15 +66,16 @@ export function WeatherApp() {
                     Use our weather app to see the weather around the world
                 </p>
                 <SearchForm onSetSearch={onSetSearch} />
-                <AppFooter />
+                {locWeather &&<AppFooter lat={locWeather.lat} lng={locWeather.lng} date={Date.now()} />}
             </div>
             <div className="weather-container">
-                <div className="weather-info">
-                    <WeatherTitle />
-                    <WeatherTemp />
-                    <WeatherCondition />
-                    <WeatherHour />
-                </div>
+                {locWeather && <div className="weather-info">
+                        <WeatherTitle city={locWeather.city} country={locWeather.country} date={locWeather.lastUpdate} />
+                        <WeatherTemp />
+                        <WeatherCondition />
+                        <WeatherHour />
+                    </div>
+                }
             </div>
         </section>
     )
