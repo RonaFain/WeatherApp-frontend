@@ -6,8 +6,8 @@ import { SearchForm } from '../cmps/search-form'
 import { AppFooter } from '../cmps/app-footer'
 import { WeatherTitle } from '../cmps/weather-title'
 import { WeatherTemp } from '../cmps/weather-temp'
-import { WeatherCondition } from '../cmps/weather-condition'
-import { WeatherHour } from '../cmps/weather-hour'
+import { WeatherConditionList } from '../cmps/weather-condition-list'
+import { WeatherHourList } from '../cmps/weather-hour-list'
  
 import Logo from '../asstes/imgs/logo.svg'
 
@@ -44,7 +44,6 @@ export function WeatherApp() {
 
     const setDefaultLoc = async () => {
         try {
-            console.log('????????')
             const defaultLoc = await weatherService.query('Tel Aviv')
             setLocWeather(defaultLoc)
         } catch (err) {
@@ -71,9 +70,9 @@ export function WeatherApp() {
             <div className="weather-container">
                 {locWeather && <div className="weather-info">
                         <WeatherTitle city={locWeather.city} country={locWeather.country} date={locWeather.lastUpdate} />
-                        <WeatherTemp />
-                        <WeatherCondition />
-                        <WeatherHour />
+                        <WeatherTemp temp={locWeather.tempC} description={locWeather.description} />
+                        <WeatherConditionList conditions={locWeather.conditions} />
+                        <WeatherHourList hours={locWeather.hours} />
                     </div>
                 }
             </div>

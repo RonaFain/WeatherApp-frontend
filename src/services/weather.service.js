@@ -10,7 +10,7 @@ async function query(text) {
     try {
         if(!text) return
         const url = `http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${text}&days=1&aqi=no&alerts=no`
-        const { data } = await axios.get(url)
+        // const { data } = await axios.get(url)
         // const forecast = {
         //     city: data.location.name,
         //     country: data.location.country,
@@ -19,20 +19,23 @@ async function query(text) {
         //     lng: data.location.lon,
         //     tempC: data.current.temp_c,
         //     description: data.current.condition.text,
-        //     conditions: {
-        //         wind: {
-        //             value: data.current.wind_kph,
-        //             unit: 'km/h'
+        //     conditions: [
+        //         {
+        //             type: 'precipitation',
+        //             value: data.current.precip_mm,
+        //             unit: 'mm'
         //         },
-        //         humidity: {
+        //         {
+        //             type: 'humidity',
         //             value: data.current.humidity,
         //             unit: '%'
         //         },
-        //         precipitation: {
-        //             value: data.current.precip_mm,
-        //             unit: 'mm'
+        //         {
+        //             type: 'wind',
+        //             value: data.current.wind_kph,
+        //             unit: 'km/h'
         //         }
-        //     },
+        //     ],
         //     hours: [
         //         {
         //             time: data.forecast.forecastday[0].hour[14].time_epoch,

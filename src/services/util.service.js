@@ -1,6 +1,6 @@
 export const utilService = {
-    formatDate
-    
+    formatDate,
+    formatTime
 }
 
 function formatDate(timestamp, isUTC) {
@@ -9,14 +9,18 @@ function formatDate(timestamp, isUTC) {
         date.setUTCSeconds(timestamp)
         return (
             [date.getMonth() + 1, date.getDate(), date.getFullYear().toString().substring(2)].join('/') + ' at ' +
-            [_padTo2Digits(date.getHours()), _padTo2Digits(date.getMinutes())].join(':')
+            formatTime(date)
         )  
     } else {
         return (
             [_padTo2Digits(date.getMonth() + 1), _padTo2Digits(date.getDate()), date.getFullYear()].join('/') + ' at ' +
-            [_padTo2Digits(date.getHours()), _padTo2Digits(date.getMinutes())].join(':')
+            formatTime(date)
         )
     }
+}
+
+function formatTime(date) {
+    return [_padTo2Digits(date.getHours()), _padTo2Digits(date.getMinutes())].join(':')
 }
 
 function _padTo2Digits(num) {

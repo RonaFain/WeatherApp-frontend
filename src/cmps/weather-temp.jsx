@@ -1,8 +1,8 @@
-export function WeatherTemp() {
+export function WeatherTemp({ temp, description }) {
     return(
         <div className="weather-temp">
-            <span className="temp">18</span>
-            <span className="description">sunny</span>
+            <span className="temp">{temp}</span>
+            <span className="description">{description}</span>
         </div>
     )
 }
