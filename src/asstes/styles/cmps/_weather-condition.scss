@@ -1,0 +1,17 @@
+.weather-condition {
+    justify-content: space-between;
+    padding: 0 51px 34px;
+    font-size: rem(20px);
+
+    >* {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .condition {}
+
+    .measure {
+        font-family: heebo-medium;
+        color: $clr5;
+    }
+}
