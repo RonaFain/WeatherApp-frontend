@@ -1,10 +1,19 @@
 .weather-hour-list {
     justify-content: space-between;
-    padding: 0 54px 14px;
+    // padding: 0 54px 14px;
+    padding: 0 30px 14px;
     font-size: rem(18px);
 
     >* {
         display: flex;
         flex-direction: column;
+    }
+
+    @include for-normal-layout {
+        padding: 0 75px 14px;
+    }
+
+    @include for-wide-layout {
+        padding: 0 54px 14px;
     }
 }

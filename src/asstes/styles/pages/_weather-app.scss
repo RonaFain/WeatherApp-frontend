@@ -1,40 +1,37 @@
 .weather-app {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    // justify-content: space-between;
     flex-wrap: wrap;
+    min-width: 320px;
+    padding-bottom: 20px;
 
-    >* {
-        height: 85vh;
-    }
+    // >* {
+    //     height: 85vh;
+    // }
 
     .content {
-        width: 480px;
+        // width: 480px;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        // justify-content: space-between;
 
         .logo-container {
             width: 98px;
             height: 43px;
         }
 
-        // .content-container {
-        //     padding-top: 78px;
+        // >:not(:first-child) {
         //     padding-left: 49px;
+        // }
 
-        >:not(:first-child) {
-            // background-color: gold;
-            padding-left: 49px;
+        p {
+            font-size: rem(30px);
+            // width: 271px;
+            margin: 1em 0;
+            color: $clr7;
         }
 
-            p {
-                font-size: rem(30px);
-                width: 271px;
-                color: $clr7;
-                // padding-bottom: 50px;
-            }
-
-        // }
     }
 
     .weather-container {
@@ -45,14 +42,53 @@
 
         .weather-info {
             background-color: $clr3;
-            margin: 73px 117px;
+            margin: 20px 30px;
             border-radius: 30px;
             text-align: center;
 
             >* {
                 display: flex;
-                // flex-direction: column;
                 text-align: center;
+            }
+        }
+    }
+
+    @include for-normal-layout {
+        background-color: pink;
+
+        .weather-container {
+            .weather-info {
+                margin: 50px 50px;
+            }
+        }
+    }
+
+    @include for-wide-layout {
+        background-color: gold;
+        justify-content: space-between;
+        padding-bottom: 0;
+
+        >* {
+            height: 85vh;
+        }
+
+        .content {
+            justify-content: space-between;
+            width: 480px;
+
+            >:not(:first-child) {
+                padding-left: 49px;
+            }
+
+            p {
+                margin: 0 0 1em;
+                width: 271px;
+            }
+        }
+
+        .weather-container {
+            .weather-info {
+                margin: 73px 117px;
             }
         }
     }

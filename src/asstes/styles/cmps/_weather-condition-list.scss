@@ -1,10 +1,19 @@
 .weather-condition-list {
     justify-content: space-between;
-    padding: 0 51px 34px;
+    // padding: 0 51px 34px;
+    padding: 0 35px 34px;
     font-size: rem(20px);
 
     >* {
         display: flex;
         flex-direction: column;
+    }
+
+    @include for-normal-layout {
+        padding: 0 126px 34px;
+    }
+
+    @include for-wide-layout {
+        padding: 0 51px 34px;
     }
 }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-export function SearchForm({ onSetSearch }) {
+export function SearchForm({ onSetSearch, searchTxt }) {
     const [txt, setTxt] = useState('')
 
     useEffect(() => {

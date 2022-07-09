@@ -25,21 +25,24 @@ export function WeatherApp() {
         if (debouncedSearchTerm) {
             setIsSearching(true)
             loadLocation(debouncedSearchTerm)
-          } 
+        } else {
+            loadLocation()
+        }
     }, [debouncedSearchTerm])
 
     const loadLocation = async (txt) => {
         try {
-            if (!txt) {
-                const defaultLoc = await weatherService.query('Tel Aviv')
-                setLocWeather(defaultLoc)
-            } else {
-                const weather =  await weatherService.query(txt)
-                setIsSearching(false)
-                setLocWeather(weather)
-            }
+            if (txt) setIsSearching(false)
+            const cityName = (!txt) ? locWeather.city : txt
+
+            // const weather =  await weatherService.query(cityName)
+            // localStorage.setItem('weather', JSON.stringify(weather))
+            const weather = JSON.parse(localStorage.getItem('weather'))
+            console.log('weather???', weather)
+            setLocWeather(weather)
         } catch (err) {
             showErrorMsg(`Cannot find the weather for ${txt}`)
+            setSearchTxt('')
         }
     }
 
@@ -56,7 +59,7 @@ export function WeatherApp() {
                 <p>
                     Use our weather app to see the weather around the world
                 </p>
-                <SearchForm onSetSearch={onSetSearch} />
+                <SearchForm onSetSearch={onSetSearch} searchTxt={searchTxt} />
                 {locWeather && <AppFooter lat={locWeather.lat} lng={locWeather.lng} date={Date.now()} />}
             </div>
             <div className="weather-container">
