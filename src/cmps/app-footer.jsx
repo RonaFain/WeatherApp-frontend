@@ -1,4 +1,5 @@
 import { utilService } from '../services/util.service'
+import { UserMsg } from './user-msg'
 
 export function AppFooter({ lat, lng, date }) {
 
@@ -13,6 +14,7 @@ export function AppFooter({ lat, lng, date }) {
                 <span>longitude {lng}</span>
             </div>
             <span>accurate to {dateToDisplay(date)}</span>
+            <UserMsg />
         </footer>
     )
 }

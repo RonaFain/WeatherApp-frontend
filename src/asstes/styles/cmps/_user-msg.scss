@@ -1,0 +1,28 @@
+.user-msg {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    color: $clr5;
+    padding: 10px;
+    font-size: 1.4em;
+    position: fixed;
+    top:0;
+    right:0;
+    background-color: $clr7;
+    border-bottom-left-radius: 10px;
+}
+.user-msg button {
+    float:right;
+    border:0;
+    border-radius: 50%;
+    margin-left: 5px;
+    background-color: $clr6;
+    font-family: inherit;
+}
+
+.user-msg.success {
+    background-color: rgb(41, 189, 73);
+}
+.user-msg.danger {
+    background-color: $clr3;
+}

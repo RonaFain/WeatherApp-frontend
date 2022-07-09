@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { weatherService } from '../services/weather.service'
+import { showErrorMsg } from '../services/event-bus.service'
 import useDebounce from '../hooks/useDebounce'
 
 import { SearchForm } from '../cmps/search-form'
@@ -23,31 +24,22 @@ export function WeatherApp() {
     useEffect(() => {
         if (debouncedSearchTerm) {
             setIsSearching(true)
-            loadLocation(debouncedSearchTerm).then(weather => {
-              setIsSearching(false)
-            //   console.log('weather????' , weather)
-              setLocWeather(weather);
-            })
-          } else {
-            setDefaultLoc()
-          }
+            loadLocation(debouncedSearchTerm)
+          } 
     }, [debouncedSearchTerm])
 
     const loadLocation = async (txt) => {
         try {
-            if (!txt) return
-            return await weatherService.query(txt)
+            if (!txt) {
+                const defaultLoc = await weatherService.query('Tel Aviv')
+                setLocWeather(defaultLoc)
+            } else {
+                const weather =  await weatherService.query(txt)
+                setIsSearching(false)
+                setLocWeather(weather)
+            }
         } catch (err) {
-            console.log(err)
-        }
-    }
-
-    const setDefaultLoc = async () => {
-        try {
-            const defaultLoc = await weatherService.query('Tel Aviv')
-            setLocWeather(defaultLoc)
-        } catch (err) {
-            console.log(err)
+            showErrorMsg(`Cannot find the weather for ${txt}`)
         }
     }
 
@@ -65,7 +57,7 @@ export function WeatherApp() {
                     Use our weather app to see the weather around the world
                 </p>
                 <SearchForm onSetSearch={onSetSearch} />
-                {locWeather &&<AppFooter lat={locWeather.lat} lng={locWeather.lng} date={Date.now()} />}
+                {locWeather && <AppFooter lat={locWeather.lat} lng={locWeather.lng} date={Date.now()} />}
             </div>
             <div className="weather-container">
                 {locWeather && <div className="weather-info">
