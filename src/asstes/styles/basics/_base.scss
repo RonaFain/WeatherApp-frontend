@@ -15,12 +15,6 @@ html {
 body {
     margin: 0;
     background-color: $clr1;
-
-    @include for-normal-layout {
-        &.sidebar-open {
-            overflow: hidden;
-        }
-    }
 }
 
 h1,
@@ -32,24 +26,6 @@ h6 {
     font-weight: 500;
     margin: 0 0 1rem;
     line-height: lh(40px, 29px);
-}
-
-h1 {
-    font-size: rem(60px);
-}
-
-h2 {
-    font-size: em(16px);
-    margin: em(63px) 0;
-    grid-area: title;
-    color: $clr1;
-    text-align: center;
-    text-transform: uppercase;
-    @include type(boldCondensed);
-}
-
-h3 {
-    font-size: em(29px);
 }
 
 img {
@@ -65,18 +41,6 @@ p {
 .root-cmp {
     margin: 54px;
     height: 85vh;
-}
-
-.btn {
-    @include btn;
-
-    &-dark {
-        @include btn($type: dark);
-    }
-
-    &-light {
-        @include btn($type: light);
-    }
 }
 
 a {

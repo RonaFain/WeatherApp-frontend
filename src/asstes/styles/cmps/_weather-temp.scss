@@ -5,20 +5,20 @@
     height: 191px;
 
     .temp {
-        font-size: 80px;
+        font-size: rem(80px);
         color: $clr5;
         font-family: heebo-medium;
+        height: 85px;
 
         &::after {
             content: "\00b0";
             position: absolute;
             top: -10%;
-            right: 35%;
         }
     }
 
     .description {
         color: $clr4;
-        font-size: 30px;
+        font-size: rem(30px);
     }
 }

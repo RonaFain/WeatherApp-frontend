@@ -11,7 +11,7 @@ export function WeatherHourPreview({ hour }) {
     return (
         <section className="weather-hour-preview">
             <span className="hour">{formatTime(hour.time)}</span>
-            <span className="measure">{hour.tempC}</span>
+            <span className="measure">{parseInt(hour.tempC)}</span>
         </section> 
     )
 }

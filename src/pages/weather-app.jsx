@@ -19,14 +19,14 @@ export function WeatherApp() {
     const [isSearching, setIsSearching] = useState(false)
     
 
-    const debouncedSearchTerm = useDebounce(searchTxt, 500);
+    const debouncedSearchTerm = useDebounce(searchTxt, 1000);
 
     useEffect(() => {
         if (debouncedSearchTerm) {
             setIsSearching(true)
             loadLocation(debouncedSearchTerm)
         } else {
-            loadLocation()
+            loadLocation('Tel Aviv')
         }
     }, [debouncedSearchTerm])
 
@@ -56,10 +56,12 @@ export function WeatherApp() {
                 <div className="logo-container">
                     <img src={Logo} alt="logo" />
                 </div>
-                <p>
-                    Use our weather app to see the weather around the world
-                </p>
-                <SearchForm onSetSearch={onSetSearch} searchTxt={searchTxt} />
+                <div className="main-container">
+                    <p>
+                        Use our weather app to see the weather around the world
+                    </p>
+                    <SearchForm onSetSearch={onSetSearch} searchTxt={searchTxt} />
+                </div>
                 {locWeather && <AppFooter lat={locWeather.lat} lng={locWeather.lng} date={Date.now()} />}
             </div>
             <div className="weather-container">
