@@ -19,7 +19,7 @@ export function WeatherApp() {
     const [isSearching, setIsSearching] = useState(false)
     
 
-    const debouncedSearchTerm = useDebounce(searchTxt, 1000);
+    const debouncedSearchTerm = useDebounce(searchTxt, 500);
 
     useEffect(() => {
         if (debouncedSearchTerm) {
@@ -35,14 +35,10 @@ export function WeatherApp() {
             if (txt) setIsSearching(false)
             const cityName = (!txt) ? locWeather.city : txt
 
-            // const weather =  await weatherService.query(cityName)
-            // localStorage.setItem('weather', JSON.stringify(weather))
-            const weather = JSON.parse(localStorage.getItem('weather'))
-            console.log('weather???', weather)
+            const weather =  await weatherService.query(cityName)
             setLocWeather(weather)
         } catch (err) {
             showErrorMsg(`Cannot find the weather for ${txt}`)
-            setSearchTxt('')
         }
     }
 
