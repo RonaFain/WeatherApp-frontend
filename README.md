@@ -2,6 +2,8 @@
 
 Weather app that allows you to get current weather information based on the city you search.
 
+![Img](https://github.com/RonaFain/WeatherApp-frontend/tree/main/src/asstes/imgs/snippet.PNG)
+
 ## Installation
 
 ```
