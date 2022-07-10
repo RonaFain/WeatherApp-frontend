@@ -44,8 +44,6 @@
     }
 
     @include for-normal-layout {
-        background-color: pink;
-
         .weather-container {
             .weather-info {
                 margin: 50px 50px;
@@ -54,7 +52,6 @@
     }
 
     @include for-wide-layout {
-        background-color: gold;
         justify-content: space-between;
         padding-bottom: 0;
 

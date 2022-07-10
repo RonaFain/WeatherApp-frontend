@@ -1,6 +1,9 @@
 # Weather App
 
 Weather app that allows you to get current weather information based on the city you search.
+Build with [Weather API](https://www.weatherapi.com/)
+
+---
 
 ![image](https://github.com/RonaFain/WeatherApp-frontend/blob/main/src/asstes/imgs/snippet.PNG)
 
